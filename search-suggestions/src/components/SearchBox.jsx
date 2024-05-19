@@ -1,8 +1,13 @@
 import React,{useState,useEffect} from "react";
+import { searchCache } from "../../utils/searchSlice";
+import { useDispatch } from "react-redux";
 const SearchBox=()=>{
+
+    const dispatch=useDispatch();
 
     const [searchText,setSearchText]=useState('');
     const [suggestions,setSuggestions]=useState([]);
+   
     const handleChange=(e)=>{
         setSearchText(e.target.value);
     }
@@ -24,6 +29,10 @@ const SearchBox=()=>{
            setSuggestions(json[1]);
      }
 
+     const handleClick=()=>{
+        dispatch(searchCache());
+     }
+
 
     return(
         <div className="flex flex-col w-[full] pt-8">
@@ -35,12 +44,13 @@ const SearchBox=()=>{
               onChange={(e)=>handleChange(e)}
            />
              
-    
+             <button onClick={handleClick}>Click</button>
+
             <ul className={`border bg-gray-500 rounded-md px-4 py-4 shadow-2xl text-white ${suggestions.length>0?"":"hidden"}`}>
                {
                 suggestions.map((data,index)=>{
                     return (
-                        <li key={index} className="bg-gray-500 hover:bg-gray-600 px-4 rounded-md py-1">{data}</li>
+                        <li onClick={()=>setSearchText(data)} key={index} className="bg-gray-500 hover:bg-gray-600 px-4 rounded-md py-1">{data}</li>
                     )
                 })
                }
