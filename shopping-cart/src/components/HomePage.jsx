@@ -1,19 +1,16 @@
-import React,{useEffect,useState} from 'react'
-import Header from './Header';
-import {useDispatch} from "react-redux"
-import { addItemToCart } from '../utils/store';
+import React,{useEffect,useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../utils/cartSlice';
 
 const HomePage = () => {
    
     const [products,setProducts]=useState([]);
-    const [cartItem,setcartItem]=useState([]);
-
+    
     const dispatch=useDispatch();
 
     useEffect(() => {
         getItemDetails();
     }, []);
-
     const getItemDetails=async()=>{
         const data=await fetch("https://fakestoreapi.com/products");
         const json=await data.json();
@@ -21,7 +18,7 @@ const HomePage = () => {
     }
 
     const handleAddCart=(data)=>{
-        dispatch(addItemToCart(data))
+        dispatch(addItemToCart(data));
     }
 
   return (
