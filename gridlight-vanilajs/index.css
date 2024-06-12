@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+.gridContainer {
+    border: 2px solid rgb(200, 98, 150);
+    height: 310px;
+    width: 310px;
+    box-sizing: border-box;
+}
+
+.parentbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 3px;
+}
+
+.box {
+    border: 2px solid rgb(78, 237, 107);
+    height: 90px;
+    width: 90px;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+#box1 {
+    background-color: rgb(241, 236, 237);
+}
+#box2 {
+    background-color: rgb(241, 236, 237);
+}
+#box3 {
+    background-color: rgb(241, 236, 237);
+}
+#box4 {
+    background-color: rgb(241, 236, 237);
+}
+#box5 {
+    background-color: rgb(241, 236, 237);
+}
+#box6 {
+    background-color: rgb(241, 236, 237);
+}
+#box7 {
+    background-color: rgb(241, 236, 237);
+}
+#box8 {
+    background-color: rgb(241, 236, 237);
+}
+#box9 {
+    background-color: rgb(241, 236, 237);
+}
+
