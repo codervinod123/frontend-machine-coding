@@ -1,10 +1,10 @@
 import React from 'react'
-import MainCOntainer from './components/MainContainer'
+import Countdown from './components/Countdown'
 
 const App = () => {
   return (
     <div>
-       <MainCOntainer/>
+        <Countdown/>
     </div>
   )
 }
