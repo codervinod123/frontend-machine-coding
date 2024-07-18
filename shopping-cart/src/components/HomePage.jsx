@@ -1,13 +1,14 @@
 import React,{useEffect,useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../utils/cartSlice';
+import { addItems } from '../utils/cartSlice';
+import Card from './Card';
 
 const HomePage = () => {
    
-    const [products,setProducts]=useState([]);
-    
     const dispatch=useDispatch();
+    const [products,setProducts]=useState([]);
 
+    
     useEffect(() => {
         getItemDetails();
     }, []);
@@ -17,10 +18,8 @@ const HomePage = () => {
         setProducts(json);
     }
 
-    const handleAddCart=(data)=>{
-        dispatch(addItemToCart(data));
-    }
-
+  
+  
   return (
     <div>
        {
@@ -29,11 +28,7 @@ const HomePage = () => {
             {
                products.map((data,index)=>{
                 return(
-                    <div key={index} className='px-4 py-4 shadow-xl bg-gray-200 flex flex-col items-center justify-center'>
-                       <img className='h-[300px] w-[300px]' src={data.image} alt={data.id} />
-                       <h3 className='text-black font-bold'>{data.category}</h3>
-                       <button onClick={()=>handleAddCart(data)} className='text-black font-bold'>Add Cart</button>
-                    </div>
+                   <Card key={index} data={data}/>
                 )
                }) 
             }

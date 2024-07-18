@@ -3,8 +3,9 @@ import Header from './components/Header'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Cart from './components/Cart'
-import {Provider} from "react-redux"
-import store from './utils/store'
+import { Provider } from 'react-redux'
+import appStore from './utils/appStore'
+
 
 
 
@@ -32,9 +33,10 @@ const appRouter=createBrowserRouter([
 
 const App = () => {
   return (
-      <Provider store={store}>
-        <RouterProvider router={appRouter}></RouterProvider>
-      </Provider>
+       <Provider store={appStore}>
+         <RouterProvider router={appRouter}></RouterProvider>
+       </Provider>
+  
   )
 }
 

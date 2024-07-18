@@ -1,37 +1,24 @@
-import React, { useEffect,useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import cartSlice from '../utils/cartSlice'
-
-
-
-
+import Card from './Card';
 
 
 const Cart = () => {
 
- const [prod,setProd]=useState([]);
-
- const data=useSelector((store)=>store.cartSlice.Cart)
- 
- useEffect(()=>{
-    setProd(data);
-    console.log(prod);
- },[prod])
+const items=useSelector((store)=>store.cart.product)
+console.log(items);
 
   return (
     <div>
-        cart
-        {/* {
-           cart.map((data)=>{
-            return  (
-                <div key={index} className='px-4 py-4 shadow-xl bg-gray-200 flex flex-col items-center justify-center'>
-                   <img className='h-[300px] w-[300px]' src={data.image} alt={data.id} />
-                   <h3 className='text-black font-bold'>{data.category}</h3>
-                   <button onClick={()=>handleAddCart(data)} className='text-black font-bold'>Add Cart</button>
-                </div>
-            )
-           })  
-        } */}
+       <div className='grid grid-cols-3 px-12 py-12 gap-4'>
+         {
+            items.map((data,index)=>{
+               return(
+                  <Card key={index} data={data}/>
+               )
+            })
+         }
+    </div>
     </div>
   )
 }

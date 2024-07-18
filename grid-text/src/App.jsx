@@ -10,7 +10,7 @@ const App = () => {
   return (
     <Provider store={appStore}>
       <div>
-       <Counter/>
+       {/* <Counter/> */}
       </div>
      </Provider>
   )
