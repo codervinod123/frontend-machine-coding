@@ -4,6 +4,8 @@ import { addItems } from '../utils/cartSlice';
 
 
 const Card = ({data}) => {
+
+    
     const dispatch=useDispatch();
     const handleAddCart=(data)=>{
         dispatch(addItems(data));

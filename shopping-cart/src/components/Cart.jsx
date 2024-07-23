@@ -6,7 +6,10 @@ import Card from './Card';
 const Cart = () => {
 
 const items=useSelector((store)=>store.cart.product)
-console.log(items);
+
+const data="Hello from my #side i'm looking for #frontend #engineer #valued";
+const x=data.match(/[^\s#]+/g);
+console.log(x);
 
   return (
     <div>
